@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to the Oneness Circle</title>
+  <style>
+    body { margin:0; padding:0; background:#F5F3EE; font-family:Inter,Arial,sans-serif; }
+    .wrap { max-width:580px; margin:40px auto; background:#fff; border-radius:12px; overflow:hidden; }
+    .header { background:linear-gradient(135deg,#0B1F3A 0%,#1E4170 100%); padding:48px 40px; text-align:center; }
+    .card-mock { background:linear-gradient(135deg,#C9A84C 0%,#E2C97E 50%,#C9A84C 100%); border-radius:12px; width:220px; margin:0 auto 24px; padding:18px 22px; text-align:left; box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+    .card-logo { font-size:12px; font-weight:700; color:#0B1F3A; letter-spacing:0.08em; }
+    .card-tier { font-size:9px; color:rgba(11,31,58,0.6); letter-spacing:0.18em; text-transform:uppercase; margin-top:28px; }
+    .card-name { font-size:15px; font-weight:600; color:#0B1F3A; margin-top:4px; }
+    .header h1 { color:#fff; font-size:22px; font-weight:300; margin:0 0 6px; }
+    .header p  { color:rgba(255,255,255,0.55); font-size:12px; margin:0; }
+    .body { padding:36px 40px; }
+    .body h2 { color:#0B1F3A; font-size:19px; font-weight:400; margin:0 0 14px; }
+    .body p  { color:#555; font-size:14.5px; line-height:1.72; margin:0 0 14px; }
+    .benefits { background:#F5F3EE; border-radius:10px; padding:20px 24px; margin:20px 0; }
+    .benefit  { display:flex; gap:12px; margin-bottom:12px; font-size:13.5px; color:#0B1F3A; align-items:flex-start; }
+    .benefit:last-child { margin-bottom:0; }
+    .benefit-icon { color:#C9A84C; font-size:16px; flex-shrink:0; }
+    .cta { display:inline-block; background:#C9A84C; color:#0B1F3A; text-decoration:none; padding:14px 30px; border-radius:8px; font-weight:600; font-size:14px; margin-top:12px; }
+    .footer { background:#F5F3EE; padding:22px 40px; text-align:center; }
+    .footer p { color:#999; font-size:11.5px; margin:0; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="card-mock">
+        <div class="card-logo">✈ ONENESS</div>
+        <div class="card-tier">{{ tier }} Member</div>
+        <div class="card-name">{{ name }}</div>
+      </div>
+      <h1>Welcome to the Oneness Circle</h1>
+      <p>Your {{ tier }} membership is now active</p>
+    </div>
+    <div class="body">
+      <h2>You're in, {{ name }}.</h2>
+      <p>Your <strong>{{ tier }} membership</strong> is active until <strong>{{ end_date }}</strong>. Here's what's waiting for you:</p>
+      <div class="benefits">
+        <div class="benefit"><span class="benefit-icon">✈</span><span><strong>{{ flight_credit }}</strong> in flight credits — ready to use on your next charter</span></div>
+        <div class="benefit"><span class="benefit-icon">⚡</span><span>Priority booking access — jump the queue on aircraft availability</span></div>
+        <div class="benefit"><span class="benefit-icon">👤</span><span>Your dedicated account manager will reach out within 24 hours</span></div>
+        <div class="benefit"><span class="benefit-icon">🛋️</span><span>FBO lounge access at eligible private terminals</span></div>
+      </div>
+      <p>Ready to book your first member flight? Call us anytime — we're available 24 × 7.</p>
+      <a href="https://onenessaviation.com/flights/request-charter" class="cta">Book a flight →</a>
+    </div>
+    <div class="footer">
+      <p>{{ company_name }} · fly@onenessaviation.com · +91 99999 99999<br>
+      Membership valid until {{ end_date }}.</p>
+    </div>
+  </div>
+</body>
+</html>

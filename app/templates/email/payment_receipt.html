@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Receipt</title>
+  <style>
+    body { margin:0; padding:0; background:#F5F3EE; font-family:Inter,Arial,sans-serif; }
+    .wrap { max-width:560px; margin:40px auto; background:#fff; border-radius:12px; overflow:hidden; }
+    .header { background:#0B1F3A; padding:32px 36px; }
+    .header h1 { color:#C9A84C; font-size:20px; font-weight:300; margin:0 0 4px; letter-spacing:0.04em; }
+    .header p  { color:rgba(255,255,255,0.45); font-size:11px; margin:0; letter-spacing:0.14em; text-transform:uppercase; }
+    .body { padding:32px 36px; }
+    .success-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(34,197,94,0.1); color:#16a34a; font-size:13px; font-weight:600; padding:8px 16px; border-radius:99px; margin-bottom:20px; }
+    .body h2 { color:#0B1F3A; font-size:18px; font-weight:400; margin:0 0 12px; }
+    .body p  { color:#555; font-size:14px; line-height:1.7; margin:0 0 14px; }
+    .receipt-box { border:1.5px solid #E5E7EB; border-radius:10px; overflow:hidden; margin:20px 0; }
+    .receipt-row { display:flex; justify-content:space-between; align-items:center; padding:13px 20px; border-bottom:1px solid #F3F4F6; font-size:13.5px; }
+    .receipt-row:last-child { border-bottom:none; }
+    .receipt-row.total { background:#F5F3EE; font-weight:700; font-size:15px; color:#0B1F3A; }
+    .receipt-label { color:#6B7280; }
+    .receipt-value { color:#0B1F3A; font-weight:500; }
+    .receipt-row.total .receipt-value { color:#C9A84C; font-size:17px; }
+    .footer { background:#F5F3EE; padding:22px 36px; text-align:center; }
+    .footer p { color:#999; font-size:11px; margin:0; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>✈ {{ company_name }}</h1>
+      <p>Payment Receipt</p>
+    </div>
+    <div class="body">
+      <div class="success-badge">✓ Payment Successful</div>
+      <h2>Thank you, {{ name }}.</h2>
+      <p>Your payment has been received and confirmed. Below is your receipt for your records.</p>
+      <div class="receipt-box">
+        <div class="receipt-row">
+          <span class="receipt-label">Payment ID</span>
+          <span class="receipt-value" style="font-family:monospace;font-size:12px;">{{ payment_id }}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Description</span>
+          <span class="receipt-value">{{ purpose }}</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Billed To</span>
+          <span class="receipt-value">{{ name }}</span>
+        </div>
+        <div class="receipt-row total">
+          <span class="receipt-label">Amount Paid</span>
+          <span class="receipt-value">{{ amount }}</span>
+        </div>
+      </div>
+      <p>A GST invoice will be emailed separately within 24 hours. For any questions, reply to this email or call <strong>+91 99999 99999</strong>.</p>
+    </div>
+    <div class="footer">
+      <p>{{ company_name }} · fly@onenessaviation.com · +91 99999 99999<br>
+      This is an automated receipt. Please keep it for your records.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Enquiry — Admin</title>
+  <style>
+    body { margin:0; padding:0; background:#f4f4f4; font-family:Inter,Arial,sans-serif; }
+    .wrap { max-width:580px; margin:30px auto; background:#fff; border-radius:10px; overflow:hidden; }
+    .header { background:#0B1F3A; padding:28px 36px; }
+    .header h1 { color:#C9A84C; font-size:18px; font-weight:600; margin:0; }
+    .body { padding:28px 36px; }
+    .field { margin-bottom:14px; }
+    .label { font-size:11px; font-weight:700; color:#C9A84C; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px; }
+    .value { font-size:14px; color:#0B1F3A; }
+    .msg-box { background:#F5F3EE; border-left:3px solid #C9A84C; padding:12px 18px; border-radius:0 6px 6px 0; margin-top:16px; font-size:13px; color:#333; line-height:1.6; }
+    .action-btn { display:inline-block; background:#0B1F3A; color:#C9A84C; text-decoration:none; padding:12px 24px; border-radius:8px; font-weight:600; font-size:13px; margin-top:18px; }
+    .footer { background:#F5F3EE; padding:18px 36px; font-size:11px; color:#999; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header"><h1>🔔 New Enquiry Received</h1></div>
+    <div class="body">
+      <div class="field"><div class="label">Name</div><div class="value">{{ name }}</div></div>
+      <div class="field"><div class="label">Email</div><div class="value">{{ email }}</div></div>
+      <div class="field"><div class="label">Phone</div><div class="value">{{ phone }}</div></div>
+      <div class="field"><div class="label">Enquiry Type</div><div class="value">{{ enquiry_type }}</div></div>
+      {% if message %}
+      <div class="msg-box"><strong>Message:</strong><br>{{ message }}</div>
+      {% endif %}
+      <a href="https://admin.onenessaviation.com/enquiries" class="action-btn">View in Admin Panel →</a>
+    </div>
+    <div class="footer">Oneness Aviation Admin Notification · Do not reply to this email.</div>
+  </div>
+</body>
+</html>

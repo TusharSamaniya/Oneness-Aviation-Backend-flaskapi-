@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+
+  # ── FastAPI app ─────────────────────────────────────────────────────────────
+  api:
+    build: .
+    container_name: oneness_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:password@db:5432/oneness_db
+      - REDIS_URL=redis://redis:6379
+      - SECRET_KEY=dev-secret-key-change-in-production-min-32-chars
+      - DEBUG=true
+      - FRONTEND_URL=http://localhost:5173
+      # Fill in real values for email / Razorpay in .env
+      - MAIL_USERNAME=${MAIL_USERNAME:-}
+      - MAIL_PASSWORD=${MAIL_PASSWORD:-}
+      - MAIL_FROM=${MAIL_FROM:-fly@onenessaviation.com}
+      - MAIL_SERVER=${MAIL_SERVER:-smtp.gmail.com}
+      - RAZORPAY_KEY_ID=${RAZORPAY_KEY_ID:-rzp_test_xxx}
+      - RAZORPAY_KEY_SECRET=${RAZORPAY_KEY_SECRET:-xxx}
+    volumes:
+      - .:/app          # live reload in dev
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ── PostgreSQL ──────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: oneness_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: oneness_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ── Redis ───────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: oneness_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

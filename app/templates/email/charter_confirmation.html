@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Charter Request Received</title>
+  <style>
+    body { margin:0; padding:0; background:#F5F3EE; font-family:Inter,Arial,sans-serif; }
+    .wrap { max-width:580px; margin:40px auto; background:#fff; border-radius:12px; overflow:hidden; }
+    .header { background:#0B1F3A; padding:36px 40px; text-align:center; }
+    .header h1 { color:#C9A84C; font-size:24px; font-weight:300; margin:0 0 6px; letter-spacing:0.04em; }
+    .header p  { color:rgba(255,255,255,0.5); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; margin:0; }
+    .body { padding:36px 40px; }
+    .body h2 { color:#0B1F3A; font-size:19px; font-weight:400; margin:0 0 14px; }
+    .body p  { color:#555; font-size:14.5px; line-height:1.72; margin:0 0 16px; }
+    .route-box { background:#F5F3EE; border-radius:10px; padding:20px 24px; margin:20px 0; display:flex; justify-content:space-between; align-items:center; }
+    .route-city { text-align:center; }
+    .route-city .city-name { font-size:20px; font-weight:600; color:#0B1F3A; }
+    .route-city .city-label { font-size:10px; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-top:3px; }
+    .route-arrow { font-size:22px; color:#C9A84C; }
+    .detail-row { display:flex; gap:24px; margin:16px 0; }
+    .detail { flex:1; }
+    .detail .d-label { font-size:10px; color:#C9A84C; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:3px; }
+    .detail .d-val   { font-size:14px; color:#0B1F3A; font-weight:500; }
+    .footer { background:#F5F3EE; padding:22px 40px; text-align:center; }
+    .footer p { color:#999; font-size:11.5px; margin:0; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>✈ {{ company_name }}</h1>
+      <p>Charter Request Confirmed</p>
+    </div>
+    <div class="body">
+      <h2>Your charter request is with us, {{ name }}.</h2>
+      <p>Our aviation team will review your requirements and send you a detailed quote — including aircraft options and full pricing — within <strong>2 hours</strong>.</p>
+      <div class="route-box">
+        <div class="route-city">
+          <div class="city-name">{{ from_city }}</div>
+          <div class="city-label">Departure</div>
+        </div>
+        <div class="route-arrow">→</div>
+        <div class="route-city">
+          <div class="city-name">{{ to_city }}</div>
+          <div class="city-label">Destination</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail">
+          <div class="d-label">Departure Date</div>
+          <div class="d-val">{{ departure_date }}</div>
+        </div>
+        <div class="detail">
+          <div class="d-label">Reference</div>
+          <div class="d-val">Will be included in our reply</div>
+        </div>
+      </div>
+      <p style="margin-top:20px;">Questions? Call or WhatsApp us anytime at <strong>+91 99999 99999</strong>.</p>
+    </div>
+    <div class="footer">
+      <p>{{ company_name }} · fly@onenessaviation.com · +91 99999 99999</p>
+    </div>
+  </div>
+</body>
+</html>

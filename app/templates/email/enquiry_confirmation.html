@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry Received — {{ company_name }}</title>
+  <style>
+    body { margin: 0; padding: 0; background: #F5F3EE; font-family: Inter, Arial, sans-serif; }
+    .wrap { max-width: 580px; margin: 40px auto; background: #fff; border-radius: 12px; overflow: hidden; }
+    .header { background: #0B1F3A; padding: 36px 40px; }
+    .header h1 { color: #C9A84C; font-size: 22px; font-weight: 300; margin: 0; letter-spacing: 0.04em; }
+    .header p  { color: rgba(255,255,255,0.55); font-size: 12px; margin: 6px 0 0; letter-spacing: 0.12em; text-transform: uppercase; }
+    .body { padding: 36px 40px; }
+    .body h2 { color: #0B1F3A; font-size: 20px; font-weight: 400; margin: 0 0 12px; }
+    .body p  { color: #555; font-size: 15px; line-height: 1.7; margin: 0 0 16px; }
+    .highlight { background: #F5F3EE; border-left: 3px solid #C9A84C; padding: 14px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+    .highlight strong { color: #0B1F3A; }
+    .cta { display: inline-block; background: #C9A84C; color: #0B1F3A; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; margin: 8px 0; }
+    .footer { background: #F5F3EE; padding: 24px 40px; text-align: center; }
+    .footer p { color: #999; font-size: 12px; margin: 0; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>✈ {{ company_name }}</h1>
+      <p>Private Charter &amp; Ferry Flights</p>
+    </div>
+    <div class="body">
+      <h2>We've received your enquiry, {{ name }}.</h2>
+      <p>Thank you for reaching out. Our aviation team will review your request and get back to you within <strong>2 hours</strong> with a tailored response.</p>
+      <div class="highlight">
+        <strong>Enquiry type:</strong> {{ enquiry_type }}<br />
+        <strong>Reference:</strong> We'll quote this in our reply.
+      </div>
+      <p>In the meantime, you can explore our fleet or check our FAQ for quick answers.</p>
+      <a href="https://onenessaviation.com/fleet" class="cta">Explore our fleet →</a>
+    </div>
+    <div class="footer">
+      <p>{{ company_name }} · fly@onenessaviation.com · +91 99999 99999<br />
+      You received this because you submitted an enquiry on our website.</p>
+    </div>
+  </div>
+</body>
+</html>
